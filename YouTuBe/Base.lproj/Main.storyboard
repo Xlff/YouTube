@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="YouTuBe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="09Y-OK-Yyq">
+                                <rect key="frame" x="0.0" y="44" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="xRZ-9V-RkI">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="8sI-ez-qM4">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ee3-kN-7Vl"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Gqa-lQ-8fH"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99215686270000003" green="0.3411764706" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="09Y-OK-Yyq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LpT-El-YdN"/>
+                            <constraint firstItem="09Y-OK-Yyq" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="aHw-I7-PnE"/>
+                            <constraint firstItem="09Y-OK-Yyq" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="iGj-cq-sP0"/>
+                            <constraint firstItem="09Y-OK-Yyq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="o6i-xy-NtD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="09Y-OK-Yyq" id="7dY-dN-loq"/>
+                        <outlet property="tabBarView" destination="RC6-RP-EDM" id="aCv-GV-XKl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="RC6-RP-EDM" customClass="YTBTabBarView" customModule="YouTuBe" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bJL-uX-gtV">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Cem-Kq-XmI">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <cells>
+                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="NmJ-UL-k5C" customClass="YTBTabBarCell" customModule="YouTuBe" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yfJ-Ju-glh">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            </imageView>
+                                        </subviews>
+                                    </view>
+                                    <constraints>
+                                        <constraint firstItem="yfJ-Ju-glh" firstAttribute="top" secondItem="NmJ-UL-k5C" secondAttribute="top" id="6w5-vh-8lp"/>
+                                        <constraint firstAttribute="bottom" secondItem="yfJ-Ju-glh" secondAttribute="bottom" id="Rg7-LA-xpW"/>
+                                        <constraint firstAttribute="trailing" secondItem="yfJ-Ju-glh" secondAttribute="trailing" id="gXD-FL-dba"/>
+                                        <constraint firstItem="yfJ-Ju-glh" firstAttribute="leading" secondItem="NmJ-UL-k5C" secondAttribute="leading" id="rxy-mZ-hBI"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="icon" destination="yfJ-Ju-glh" id="paB-z8-Kur"/>
+                                    </connections>
+                                </collectionViewCell>
+                            </cells>
+                            <connections>
+                                <outlet property="dataSource" destination="RC6-RP-EDM" id="BrQ-0Z-N55"/>
+                                <outlet property="delegate" destination="RC6-RP-EDM" id="e2O-Rh-ZT6"/>
+                            </connections>
+                        </collectionView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8A-i7-uQW">
+                            <rect key="frame" x="0.0" y="123" width="240" height="5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="5" id="wj8-bE-yoc"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.89411764705882346" green="0.13333333333333333" blue="0.094117647058823528" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="bJL-uX-gtV" firstAttribute="top" secondItem="RC6-RP-EDM" secondAttribute="top" id="1k3-Jx-aog"/>
+                        <constraint firstItem="Y8A-i7-uQW" firstAttribute="width" secondItem="RC6-RP-EDM" secondAttribute="width" id="DCV-dM-zW8"/>
+                        <constraint firstItem="bJL-uX-gtV" firstAttribute="leading" secondItem="OoW-bE-7w4" secondAttribute="leading" id="MSN-Pg-Cup"/>
+                        <constraint firstAttribute="bottom" secondItem="Y8A-i7-uQW" secondAttribute="bottom" id="aQz-Z3-pAd"/>
+                        <constraint firstItem="Y8A-i7-uQW" firstAttribute="leading" secondItem="OoW-bE-7w4" secondAttribute="leading" id="m4u-49-D1p"/>
+                        <constraint firstAttribute="bottom" secondItem="bJL-uX-gtV" secondAttribute="bottom" id="mag-i1-jlN"/>
+                        <constraint firstItem="bJL-uX-gtV" firstAttribute="trailing" secondItem="OoW-bE-7w4" secondAttribute="trailing" id="tsz-iw-6hn"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="OoW-bE-7w4"/>
+                    <connections>
+                        <outlet property="collectionView" destination="bJL-uX-gtV" id="R3U-i2-tFI"/>
+                        <outlet property="whiteBar" destination="Y8A-i7-uQW" id="5Q3-Zx-9yW"/>
+                        <outlet property="whiteBarLeadingConstraint" destination="m4u-49-D1p" id="9hF-c1-9On"/>
+                    </connections>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="50.724637681159422" y="20.758928571428569"/>
+        </scene>
+        <!--Home View Controller-->
+        <scene sceneID="2B3-pX-5er">
+            <objects>
+                <viewController storyboardIdentifier="YTBHomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wz1-be-N7D" customClass="YTBHomeViewController" customModule="YouTuBe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fWz-VO-5RU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="zMo-6S-TCu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bkA-A3-Cw9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="788" y="40"/>
+        </scene>
+        <!--Account View Controller-->
+        <scene sceneID="gTO-ex-l5f">
+            <objects>
+                <viewController storyboardIdentifier="YTBAccountViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Iuy-Jb-YX8" customClass="YTBAccountViewController" customModule="YouTuBe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="IE7-ut-DGw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0RX-gv-gTu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vie-3n-2b4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2887" y="40"/>
+        </scene>
+        <!--Subscriptions View Controller-->
+        <scene sceneID="6GV-Hi-3kZ">
+            <objects>
+                <viewController storyboardIdentifier="YTBSubscriptionsViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mYC-oK-l7M" customClass="YTBSubscriptionsViewController" customModule="YouTuBe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iIT-wS-VFL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="5Ac-ap-a5j"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xvg-yF-t6Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2209" y="40"/>
+        </scene>
+        <!--Trending View Controller-->
+        <scene sceneID="rJp-ya-rBW">
+            <objects>
+                <viewController storyboardIdentifier="YTBTrendingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fxB-ju-jkh" customClass="YTBTrendingViewController" customModule="YouTuBe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Dck-mf-GyF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="D4b-jh-wOl"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5uP-CC-uAK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1542" y="40"/>
+        </scene>
+    </scenes>
+</document>
