@@ -192,7 +192,7 @@
         <!--YouTube-->
         <scene sceneID="NMw-XR-aeb">
             <objects>
-                <navigationController title="YouTube" automaticallyAdjustsScrollViewInsets="NO" id="gfH-BG-DNr" sceneMemberID="viewController">
+                <navigationController title="YouTube" automaticallyAdjustsScrollViewInsets="NO" id="gfH-BG-DNr" customClass="YTBNavigationViewController" customModule="YouTuBe" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="w6i-a4-YOj">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -200,11 +200,14 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
+                        <outlet property="playerView" destination="ccn-T6-hfB" id="RYM-NT-aiD"/>
+                        <outlet property="searchView" destination="HWT-0b-gMW" id="e2Z-2O-3D2"/>
+                        <outlet property="settingView" destination="vpk-MF-kg6" id="ilO-9b-bwM"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="0R0-XB-Ibf"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q8L-5L-cda" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="HWT-0b-gMW" customClass="YTBSearhView" customModule="YouTuBe" customModuleProvider="target">
+                <view hidden="YES" contentMode="scaleToFill" id="HWT-0b-gMW" customClass="YTBSearhView" customModule="YouTuBe" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="500"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -309,8 +312,8 @@
                         <constraint firstItem="ppV-O8-qen" firstAttribute="leading" secondItem="HWT-0b-gMW" secondAttribute="leading" id="VRS-2Z-yHz"/>
                         <constraint firstItem="s5I-1e-1v9" firstAttribute="trailing" secondItem="HWT-0b-gMW" secondAttribute="trailing" id="fel-I4-5Rq"/>
                         <constraint firstItem="ppV-O8-qen" firstAttribute="top" secondItem="s5I-1e-1v9" secondAttribute="bottom" id="gB5-fS-Z5o"/>
-                        <constraint firstItem="CYR-C9-g3S" firstAttribute="top" secondItem="HWT-0b-gMW" secondAttribute="top" id="hWw-Jc-JM8"/>
-                        <constraint firstItem="s5I-1e-1v9" firstAttribute="top" secondItem="HWT-0b-gMW" secondAttribute="top" id="p4i-PJ-2Ir"/>
+                        <constraint firstItem="CYR-C9-g3S" firstAttribute="top" secondItem="ewS-7a-pzC" secondAttribute="top" constant="-44" id="hWw-Jc-JM8"/>
+                        <constraint firstItem="s5I-1e-1v9" firstAttribute="top" secondItem="ewS-7a-pzC" secondAttribute="top" constant="-44" id="p4i-PJ-2Ir"/>
                         <constraint firstItem="ewS-7a-pzC" firstAttribute="bottom" secondItem="CYR-C9-g3S" secondAttribute="bottom" id="yHD-zB-VbC"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="ewS-7a-pzC"/>
@@ -319,7 +322,7 @@
                         <outlet property="tableView" destination="ppV-O8-qen" id="SV0-wq-tsb"/>
                     </connections>
                 </view>
-                <view contentMode="scaleToFill" id="vpk-MF-kg6" customClass="YTBSettingView" customModule="YouTuBe" customModuleProvider="target">
+                <view hidden="YES" contentMode="scaleToFill" id="vpk-MF-kg6" customClass="YTBSettingView" customModule="YouTuBe" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="240" height="497"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
@@ -361,7 +364,7 @@
                             </connections>
                         </tableView>
                     </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="2IC-9m-9Bh" secondAttribute="bottom" id="271-T6-3qp"/>
                         <constraint firstItem="2IC-9m-9Bh" firstAttribute="leading" secondItem="vpk-MF-kg6" secondAttribute="leading" id="4bb-7o-iy4"/>
@@ -378,11 +381,51 @@
                         <outlet property="tableViewBottomConstraint" destination="271-T6-3qp" id="NCq-Qr-rYa"/>
                     </connections>
                 </view>
+                <view hidden="YES" contentMode="scaleToFill" id="ccn-T6-hfB" customClass="YTBPlayerView" customModule="YouTuBe" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="487"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D84-ND-C2O">
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="135"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="D84-ND-C2O" secondAttribute="height" multiplier="16:9" id="bsf-Zd-EHf"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UA9-6U-tUP">
+                            <rect key="frame" x="20" y="20" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="GwH-w9-ewI"/>
+                                <constraint firstAttribute="height" constant="30" id="T0j-kK-nKn"/>
+                            </constraints>
+                            <state key="normal" image="minimize"/>
+                        </button>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fdE-AK-eST">
+                            <rect key="frame" x="0.0" y="135" width="240" height="318"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </tableView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="fdE-AK-eST" firstAttribute="top" secondItem="D84-ND-C2O" secondAttribute="bottom" id="0NU-ZS-IlH"/>
+                        <constraint firstItem="Cmn-d2-fkH" firstAttribute="bottom" secondItem="fdE-AK-eST" secondAttribute="bottom" id="0ez-7z-7sC"/>
+                        <constraint firstItem="fdE-AK-eST" firstAttribute="leading" secondItem="Cmn-d2-fkH" secondAttribute="leading" id="2D9-Xk-jnD"/>
+                        <constraint firstItem="D84-ND-C2O" firstAttribute="trailing" secondItem="Cmn-d2-fkH" secondAttribute="trailing" id="3Rl-np-Q2V"/>
+                        <constraint firstItem="fdE-AK-eST" firstAttribute="trailing" secondItem="Cmn-d2-fkH" secondAttribute="trailing" id="4ty-Xd-AVE"/>
+                        <constraint firstItem="D84-ND-C2O" firstAttribute="top" secondItem="ccn-T6-hfB" secondAttribute="top" id="mZc-FM-zkY"/>
+                        <constraint firstItem="UA9-6U-tUP" firstAttribute="top" secondItem="ccn-T6-hfB" secondAttribute="top" constant="20" id="nWG-5B-AUE"/>
+                        <constraint firstItem="UA9-6U-tUP" firstAttribute="leading" secondItem="Cmn-d2-fkH" secondAttribute="leading" constant="20" id="td6-2E-7Lp"/>
+                        <constraint firstItem="D84-ND-C2O" firstAttribute="leading" secondItem="Cmn-d2-fkH" secondAttribute="leading" id="tij-na-FxC"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Cmn-d2-fkH"/>
+                </view>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="X7u-1K-MRI"/>
             </objects>
             <point key="canvasLocation" x="50.724637681159422" y="20.758928571428569"/>
         </scene>
     </scenes>
     <resources>
         <image name="cancel" width="48" height="48"/>
+        <image name="minimize" width="20" height="10"/>
     </resources>
 </document>
