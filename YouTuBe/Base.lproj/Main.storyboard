@@ -399,10 +399,17 @@
                                 <constraint firstAttribute="height" constant="30" id="T0j-kK-nKn"/>
                             </constraints>
                             <state key="normal" image="minimize"/>
+                            <connections>
+                                <action selector="minimize:" destination="ccn-T6-hfB" eventType="touchUpInside" id="tzG-f9-H1z"/>
+                            </connections>
                         </button>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fdE-AK-eST">
                             <rect key="frame" x="0.0" y="135" width="240" height="318"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <outlet property="dataSource" destination="ccn-T6-hfB" id="ewD-MV-1J9"/>
+                                <outlet property="delegate" destination="ccn-T6-hfB" id="dkB-0W-Z74"/>
+                            </connections>
                         </tableView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -418,8 +425,18 @@
                         <constraint firstItem="D84-ND-C2O" firstAttribute="leading" secondItem="Cmn-d2-fkH" secondAttribute="leading" id="tij-na-FxC"/>
                     </constraints>
                     <viewLayoutGuide key="safeArea" id="Cmn-d2-fkH"/>
+                    <connections>
+                        <outlet property="minimizeButton" destination="UA9-6U-tUP" id="N4O-nh-6Yx"/>
+                        <outlet property="player" destination="D84-ND-C2O" id="N27-j7-6qI"/>
+                        <outlet property="tableView" destination="fdE-AK-eST" id="0ZF-sy-K5h"/>
+                    </connections>
                 </view>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="X7u-1K-MRI"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="X7u-1K-MRI">
+                    <connections>
+                        <action selector="minimizeGesture:" destination="ccn-T6-hfB" id="KKn-VM-dIh"/>
+                        <outlet property="delegate" destination="ccn-T6-hfB" id="8Ii-LA-Hcs"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="50.724637681159422" y="20.758928571428569"/>
         </scene>

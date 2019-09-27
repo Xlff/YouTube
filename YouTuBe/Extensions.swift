@@ -78,3 +78,14 @@ extension CGFloat {
         return CGFloat(Float(arc4random()) / Float(0xFFFFFFFF))
     }
 }
+
+
+enum StateOfVC {
+    case minimized
+    case fullScreen
+    case hidden
+}
+
+enum Direction {
+    case up, left, none
+}
