@@ -14,6 +14,12 @@ class YTBNavigationViewController: UINavigationController {
     @IBOutlet var playerView: YTBPlayerView!
     private let names = ["Home", "Trending", "Subscriptions", "Account"]
     
+    private var isHidden = true {
+        didSet {
+            setNeedsStatusBarAppearanceUpdate()
+        }
+    }
+    
     
    private let hiddenOrigin: CGPoint = {
         let y = UIScreen.main.bounds.height - (UIScreen.main.bounds.width * 9 / 32 ) - 10
@@ -58,9 +64,15 @@ class YTBNavigationViewController: UINavigationController {
 
         // Do any additional setup after loading the view.
         customization()
-        NotificationCenter.default.addObserver(self, selector: #selector(changeTitle(notification:)), name: YTBConstant.scrollMenuNotificationName, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(changeTitle(notification:)),
+                                               name: YTBConstant.scrollMenuNotificationName,
+                                               object: nil)
     }
     
+    override var prefersStatusBarHidden: Bool {
+        return isHidden
+    }
     
     private func customization() {
         navigationBar.addSubview(settingButton)
@@ -102,7 +114,7 @@ class YTBNavigationViewController: UINavigationController {
         }
         
         playerView.frame = CGRect(origin: hiddenOrigin, size: UIScreen.main.bounds.size)
-        //TODO: delegate
+        playerView.delegate = self
         
     }
     
@@ -141,5 +153,63 @@ class YTBNavigationViewController: UINavigationController {
         if let info = notification.userInfo as? [String: CGFloat] {
             self.titleLabel.text = names[Int(round(info[YTBConstant.NotificationInfolength]!))]
         }
+    }
+}
+
+
+extension YTBNavigationViewController: PlayerVCDelegate {
+    func didMinimize() {
+        animatePlayView(toState: .minimized)
+    }
+    
+    func didmaximize() {
+        animatePlayView(toState: .fullScreen)
+    }
+    
+    func swipeToMinimize(translation: CGFloat, toState: StateOfVC) {
+        switch toState {
+        case .hidden:
+            playerView.frame.origin.x = UIScreen.main.bounds.width / 2 - abs(translation) - 10
+        default:
+            playerView.frame.origin = positionDuringSwipe(scaleFactor: translation)
+        }
+    }
+    
+    func didEndedSwipe(toState: StateOfVC) {
+        animatePlayView(toState: toState)
+    }
+    
+    func setPreferStatusBarHidden(_ preferHidden: Bool) {
+        isHidden = preferHidden
+    }
+    
+    private func animatePlayView(toState: StateOfVC) {
+        switch toState {
+        case .fullScreen:
+            UIView.animate(withDuration: 0.3,
+                           delay: 0,
+                           usingSpringWithDamping: 1,
+                           initialSpringVelocity: 5,
+                           options: [.beginFromCurrentState],
+                           animations: {
+                            self.playerView.frame.origin = self.fullScreenOrigin
+            })
+        case .minimized:
+            UIView.animate(withDuration: 0.3) {
+                self.playerView.frame.origin = self.minimizedOrigin
+            }
+        case .hidden:
+            UIView.animate(withDuration: 0.3) {
+                self.playerView.frame.origin = self.hiddenOrigin
+            }
+        }
+    }
+    private func positionDuringSwipe(scaleFactor: CGFloat) -> CGPoint {
+        let width = UIScreen.main.bounds.width * 0.5 * scaleFactor
+        let height = width * 9 / 16
+        let x = (UIScreen.main.bounds.width - 10) * scaleFactor - width
+        let y = (UIScreen.main.bounds.height - 10) * scaleFactor - height
+        let coordinate = CGPoint.init(x: x, y: y)
+        return coordinate
     }
 }

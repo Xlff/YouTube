@@ -468,7 +468,7 @@
                         <outlet property="tableViewBottomConstraint" destination="271-T6-3qp" id="NCq-Qr-rYa"/>
                     </connections>
                 </view>
-                <view hidden="YES" contentMode="scaleToFill" id="ccn-T6-hfB" customClass="YTBPlayerView" customModule="YouTuBe" customModuleProvider="target">
+                <view contentMode="scaleToFill" id="ccn-T6-hfB" customClass="YTBPlayerView" customModule="YouTuBe" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="275" height="728"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
