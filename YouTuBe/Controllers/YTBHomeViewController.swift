@@ -30,7 +30,7 @@ class YTBHomeViewController: UITableViewController {
 
 }
 
-extension YTBHomeViewController: UITableViewDataSource {
+extension YTBHomeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return videos.count
     }
@@ -41,13 +41,14 @@ extension YTBHomeViewController: UITableViewDataSource {
     }
 }
 
-extension YTBHomeViewController: UITableViewDelegate {
+extension YTBHomeViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        NotificationCenter.default.post(YTBConstant.openPlayerViewNotificationName)
+        NotificationCenter.default.post(name: YTBConstant.openPlayerViewNotificationName, object: nil)
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        NotificationCenter.default.post(name: YTBConstant.hiddenMenuNotificationName, object: self.lastContentOffset > scrollView.contentOffset.y ? false : true)
+        NotificationCenter.default.post(name: YTBConstant.hiddenMenuNotificationName,
+                                        object: self.lastContentOffset > scrollView.contentOffset.y ? false : true)
     }
     
     override func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
